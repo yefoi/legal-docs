@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroTrivia AI - Legal</title>
+    <meta name="description" content="Documentos legales de NeuroTrivia AI - Política de Privacidad y Términos de Uso">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex; align-items: center; justify-content: center; padding: 20px;
+        }
+        .container { text-align: center; max-width: 500px; width: 100%; }
+        .logo { font-size: 80px; margin-bottom: 20px; animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        h1 { color: white; font-size: 36px; font-weight: 700; margin-bottom: 8px; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .subtitle { color: rgba(255,255,255,0.85); font-size: 18px; margin-bottom: 40px; }
+        .cards { display: flex; flex-direction: column; gap: 16px; }
+        .card {
+            background: white; border-radius: 16px; padding: 24px 30px; text-decoration: none;
+            color: #1a1a2e; display: flex; align-items: center; gap: 20px;
+            transition: all 0.3s ease; box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+        .card:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
+        .card-icon { font-size: 40px; flex-shrink: 0; }
+        .card-content { text-align: left; }
+        .card-title { font-size: 18px; font-weight: 600; color: #1a1a2e; margin-bottom: 4px; }
+        .card-description { font-size: 14px; color: #666; }
+        .card-arrow { margin-left: auto; font-size: 24px; color: #667eea; transition: transform 0.3s ease; }
+        .card:hover .card-arrow { transform: translateX(5px); }
+        .footer { margin-top: 50px; color: rgba(255,255,255,0.7); font-size: 14px; }
+        .footer a { color: white; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🧠</div>
+        <h1>NeuroTrivia AI</h1>
+        <p class="subtitle">Documentos Legales</p>
+        <div class="cards">
+            <a href="privacidad.html" class="card">
+                <span class="card-icon">🔒</span>
+                <div class="card-content">
+                    <div class="card-title">Política de Privacidad</div>
+                    <div class="card-description">Cómo protegemos tus datos personales</div>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+            <a href="terminos.html" class="card">
+                <span class="card-icon">📜</span>
+                <div class="card-content">
+                    <div class="card-title">Términos y Condiciones</div>
+                    <div class="card-description">Condiciones de uso de la aplicación</div>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+        </div>
+        <div class="footer">
+            <p>© 2026 <a href="https://lebr.io">Lebrio</a>. Todos los derechos reservados.</p>
+            <p style="margin-top: 8px;"><a href="mailto:yerfer.2@gmail.com">yerfer.2@gmail.com</a></p>
+        </div>
+    </div>
+</body>
+</html>
