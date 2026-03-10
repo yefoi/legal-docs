@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – Wealth Lost</title>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --card: #141414;
+      --border: rgba(255,255,255,0.08);
+      --text-1: #ffffff;
+      --text-2: rgba(255,255,255,0.6);
+      --text-3: rgba(255,255,255,0.3);
+      --accent: #ff8c00;
+      --green: #00c97a;
+      --radius: 14px;
+      --font: 'Segoe UI', system-ui, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text-1);
+      line-height: 1.7;
+      padding: 0 0 80px;
+    }
+    .lang-bar {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,10,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; justify-content: center; gap: 8px;
+      padding: 12px 20px;
+    }
+    .lang-btn {
+      padding: 7px 20px;
+      border-radius: 50px;
+      border: 1px solid var(--border);
+      background: none;
+      color: var(--text-2);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #000;
+    }
+    .hero {
+      text-align: center;
+      padding: 56px 24px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero__icon { font-size: 52px; margin-bottom: 16px; display: block; }
+    .hero__app { font-size: 13px; font-weight: 600; color: var(--accent); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
+    .hero__title { font-size: 30px; font-weight: 800; margin-bottom: 10px; }
+    .hero__date { font-size: 13px; color: var(--text-3); }
+    .content { max-width: 720px; margin: 0 auto; padding: 40px 24px; }
+    .summary-box {
+      background: rgba(0,201,122,0.07);
+      border: 1px solid rgba(0,201,122,0.2);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 40px;
+    }
+    .summary-box__title { font-size: 14px; font-weight: 700; color: var(--green); margin-bottom: 10px; display: flex; gap: 8px; align-items: center; }
+    .summary-box p { font-size: 14px; color: var(--text-2); line-height: 1.6; }
+    .section { margin-bottom: 36px; }
+    .section__num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px;
+      background: var(--accent);
+      color: #000;
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 700;
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+    .section__title {
+      display: flex; align-items: center;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section p { font-size: 15px; color: var(--text-2); margin-bottom: 10px; }
+    .section ul { padding-left: 0; margin: 10px 0; display: flex; flex-direction: column; gap: 6px; }
+    .section ul li {
+      list-style: none;
+      font-size: 15px;
+      color: var(--text-2);
+      padding-left: 20px;
+      position: relative;
+    }
+    .section ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+    strong { color: var(--text-1); font-weight: 600; }
+    .tag {
+      display: inline-block;
+      background: rgba(255,140,0,0.12);
+      border: 1px solid rgba(255,140,0,0.25);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 50px;
+      margin-bottom: 8px;
+    }
+    .tag--green {
+      background: rgba(0,201,122,0.1);
+      border-color: rgba(0,201,122,0.25);
+      color: var(--green);
+    }
+    .tag--red {
+      background: rgba(255,77,77,0.1);
+      border-color: rgba(255,77,77,0.25);
+      color: #ff4d4d;
+    }
+    .third-party {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin: 12px 0;
+    }
+    .third-party__name { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .third-party__desc { font-size: 13px; color: var(--text-2); margin-bottom: 6px; }
+    .third-party__link { font-size: 12px; color: var(--accent); text-decoration: none; }
+    .third-party__link:hover { text-decoration: underline; }
+    .contact-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .contact-box__icon { font-size: 36px; margin-bottom: 10px; display: block; }
+    .contact-box__title { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+    .contact-box__desc { font-size: 14px; color: var(--text-2); margin-bottom: 16px; }
+    .contact-box a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .contact-box a:hover { text-decoration: underline; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 60px 0 40px; }
+    .lang-section { display: none; }
+    .lang-section.active { display: block; }
+  </style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')">🇬🇧 English</button>
+  <button class="lang-btn" onclick="setLang('es')">🇪🇸 Español</button>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  ENGLISH VERSION                                       -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="lang-section active" id="lang-en">
+
+  <div class="hero">
+    <span class="hero__icon">🔒</span>
+    <div class="hero__app">Wealth Lost</div>
+    <h1 class="hero__title">Privacy Policy</h1>
+    <div class="hero__date">Last updated: March 2026</div>
+  </div>
+
+  <div class="content">
+
+    <div class="summary-box">
+      <div class="summary-box__title">✅ Short version (plain language)</div>
+      <p>Wealth Lost does <strong>not collect your personal data</strong>. Everything you type — income, debts, habits — stays on your device. We never see it, never store it on any server. The only third-party services are Google AdMob (for ads in the free version) and RevenueCat / Google Play (for subscriptions), which operate under their own privacy policies.</p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="section__num">1</span> Who we are</div>
+      <p>Wealth Lost is an Android application developed and operated by <strong>Luis Jesús Berbel</strong>, an independent developer based in Spain (EU), operating under the domain <a href="https://lebr.io" style="color: var(--accent);">lebr.io</a>.</p>
+      <p>Contact: <a href="mailto:yerfer.2@gmail.com" style="color: var(--accent);">yerfer.2@gmail.com</a></p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="section__num">2</span> What data we collect</div>
+      <div class="tag tag--green">✅ LOCAL ONLY</div>
+      <p><strong>We do not collect any personal data from you.</strong> All financial information you enter into the app (salary, debts, daily spending habits) is processed entirely on your device and is never transmitted to our servers or to any third party by us.</p>
+      <p>The following data is stored <strong>locally on your device</strong>:</p>
+      <ul>
+        <li>Your calculation inputs and results</li>
+        <li>Your language and currency preferences</li>
+        <li>Your premium/subscription status</li>
+        <li>Your calculation history (Premium users)</li>
+        <li>Ad unlock status and timestamp (free users who watch a rewarded ad)</li>
+      </ul>
+      <p>You can delete all locally stored data at any time from <strong>Settings → Delete all data</strong>.</p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="section__num">3</span> Third-party services</div>
+      <p>The app integrates the following third-party services, each with their own privacy policies:</p>
+
+      <div class="third-party">
+        <div class="third-party__name">📺 Google AdMob</div>
+        <div class="tag">FREE VERSION — REWARDED ADS</div>
+        <div class="third-party__desc">
+          The free version of Wealth Lost uses Google AdMob to serve rewarded video advertisements. When you watch a rewarded ad to unlock content, AdMob may collect device identifiers (Android Advertising ID), IP address, and usage data to serve and measure ads. This data is processed by Google under their privacy policy.
+        </div>
+        <p style="font-size:13px; color: var(--text-2); margin-bottom: 6px;">You can opt out of personalized ads at any time: <strong>Android Settings → Privacy → Ads → Opt out of Ads Personalization</strong>.</p>
+        <a href="https://policies.google.com/privacy" class="third-party__link" target="_blank">→ Google Privacy Policy</a>
+      </div>
+
+      <div class="third-party">
+        <div class="third-party__name">💎 RevenueCat</div>
+        <div class="tag">PREMIUM SUBSCRIPTIONS</div>
+        <div class="third-party__desc">
+          In-app purchases and subscription management are handled by RevenueCat. RevenueCat may process purchase receipts and subscription status to verify your premium entitlement. No payment card data passes through RevenueCat — all payments are processed directly by Google Play.
+        </div>
+        <a href="https://www.revenuecat.com/privacy" class="third-party__link" target="_blank">→ RevenueCat Privacy Policy</a>
+      </div>
+
+      <div class="third-party">
+        <div class="third-party__name">🛒 Google Play Billing</div>
+        <div class="tag">PAYMENT PROCESSING</div>
+        <div class="third-party__desc">
+          All payments for in-app purchases are processed by Google Play. We never receive or store your payment card information. Refunds and billing disputes are handled directly by Google.
+        </div>
+        <a href="https://payments.google.com/payments/apis-secure/u/0/get_legal_document?ldo=0&ldt=privacynotice" class="third-party__link" target="_blank">→ Google Play Privacy Notice</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="section__num">4</span> Advertising & Rewarded Ads</div>
+      <div class="tag tag--red">ADS — FREE VERSION ONLY</div>
+      <p>Free users of Wealth Lost may see <strong>rewarded video advertisements</strong>. Watching a rewarded ad unlocks additional content (equivalences) for 24 hours. This is entirely optional — you are never forced to watch an ad.</p>
+      <p>Premium subscribers <strong>never see advertisements</strong>.</p>
+      <p>The rewarded ad system is powered by Google AdMob. AdMob may use the Android Advertising ID to serve relevant ads. You can limit ad personalization in your Android device settings.</p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="section__num">5</span> Legal basis (GDPR)</div>
+      <p>As a developer based in the European Union (Spain), we comply with the EU General Data Protection Regulation (GDPR) and the Spanish LOPDGDD (Ley Orgánica 3/2018).</p>
+      <p>Since we do not collect personal data directly, no legal basis is required for our own data processing. Third-party services (AdMob, RevenueCat, Google Play) process data under their own legal bases, which include:</p>
+      <ul>
+        <li><strong>Legitimate interest</strong> — subscription verification (RevenueCat)</li>
+        <li><strong>Consent</strong> — personalized advertising (AdMob)</li>
+        <li><strong>Contract performance</strong> — payment processing (Google Play)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="section__num">6</span> Your rights</div>
+      <p>Under GDPR, you have the following rights regarding any personal data that may be processed:</p>
+      <ul>
+        <li><strong>Access</strong> — All your app data is on your device. You can view it at any time.</li>
+        <li><strong>Deletion</strong> — Delete all local data via Settings → Delete all data.</li>
+        <li><strong>Portability</strong> — Export your data using the Share feature.</li>
+        <li><strong>Opt-out of ad personalization</strong> — Via Android Settings → Privacy → Ads.</li>
+        <li><strong>Contact AdMob</strong> — For data processed by Google AdMob, contact Google directly.</li>
+        <li><strong>Lodge a complaint</strong> — You have the right to file a complaint with the Spanish Data Protection Authority (AEPD) at <a href="https://www.aepd.es" style="color:var(--accent);">aepd.es</a>.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="section__num">7</span> Children's privacy</div>
+      <p>Wealth Lost is <strong>not directed at children under 13 years of age</strong>. The app deals with financial topics intended for adults. We do not knowingly collect any data from children. If you believe a child has used this app and data has been collected, please contact us immediately.</p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="section__num">8</span> Data security</div>
+      <p>Since all your financial data is stored locally on your device, its security depends on your device's own security features (PIN, biometrics, encryption). We recommend using device-level security measures.</p>
+      <p>We do not operate servers that store your personal financial data, which means there is no central database that could be breached.</p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="section__num">9</span> Changes to this policy</div>
+      <p>We may update this Privacy Policy from time to time. The "Last updated" date at the top of this page will reflect any changes. We encourage you to review this policy periodically. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+    </div>
+
+    <div class="contact-box">
+      <span class="contact-box__icon">✉️</span>
+      <div class="contact-box__title">Privacy questions?</div>
+      <div class="contact-box__desc">If you have any questions or concerns about this Privacy Policy or how your data is handled, please contact us.</div>
+      <p><a href="mailto:yerfer.2@gmail.com">yerfer.2@gmail.com</a></p>
+      <p style="margin-top:8px; font-size:13px; color: var(--text-3)"><a href="https://lebr.io" style="color:var(--text-3)">lebr.io</a></p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  SPANISH VERSION                                       -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="lang-section" id="lang-es">
+
+  <div class="hero">
+    <span class="hero__icon">🔒</span>
+    <div class="hero__app">Wealth Lost</div>
+    <h1 class="hero__title">Política de Privacidad</h1>
+    <div class="hero__date">Última actualización: marzo de 2026</div>
+  </div>
+
+  <div class="content">
+
+    <div class="summary-box">
+      <div class="summary-box__title">✅ Versión corta (en lenguaje claro)</div>
+      <p>Wealth Lost <strong>no recopila tus datos personales</strong>. Todo lo que introduces — ingresos, deudas, hábitos — se queda en tu dispositivo. Nunca lo vemos ni lo almacenamos en ningún servidor. Los únicos servicios de terceros son Google AdMob (para anuncios en la versión gratuita) y RevenueCat / Google Play (para suscripciones), que operan bajo sus propias políticas de privacidad.</p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="section__num">1</span> Quién somos</div>
+      <p>Wealth Lost es una aplicación Android desarrollada y operada por <strong>Luis Jesús Berbel</strong>, desarrollador independiente radicado en España (UE), bajo el dominio <a href="https://lebr.io" style="color: var(--accent);">lebr.io</a>.</p>
+      <p>Contacto: <a href="mailto:yerfer.2@gmail.com" style="color: var(--accent);">yerfer.2@gmail.com</a></p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="section__num">2</span> Qué datos recopilamos</div>
+      <div class="tag tag--green">✅ SOLO LOCAL</div>
+      <p><strong>No recopilamos ningún dato personal.</strong> Toda la información financiera que introduces en la app (salario, deudas, hábitos de gasto diario) se procesa íntegramente en tu dispositivo y nunca se transmite a nuestros servidores ni a terceros por nuestra parte.</p>
+      <p>Los siguientes datos se almacenan <strong>localmente en tu dispositivo</strong>:</p>
+      <ul>
+        <li>Tus entradas y resultados de cálculo</li>
+        <li>Tus preferencias de idioma y moneda</li>
+        <li>Tu estado premium/suscripción</li>
+        <li>Tu historial de cálculos (usuarios Premium)</li>
+        <li>Estado y timestamp de desbloqueo por anuncio (usuarios gratuitos)</li>
+      </ul>
+      <p>Puedes eliminar todos los datos almacenados localmente en cualquier momento desde <strong>Ajustes → Eliminar todos los datos</strong>.</p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="section__num">3</span> Servicios de terceros</div>
+      <p>La app integra los siguientes servicios de terceros, cada uno con sus propias políticas de privacidad:</p>
+
+      <div class="third-party">
+        <div class="third-party__name">📺 Google AdMob</div>
+        <div class="tag">VERSIÓN GRATUITA — ANUNCIOS RECOMPENSADOS</div>
+        <div class="third-party__desc">
+          La versión gratuita de Wealth Lost utiliza Google AdMob para mostrar anuncios de vídeo recompensados. Cuando ves un anuncio recompensado para desbloquear contenido, AdMob puede recopilar identificadores del dispositivo (Android Advertising ID), dirección IP y datos de uso para servir y medir los anuncios. Google procesa estos datos bajo su propia política de privacidad.
+        </div>
+        <p style="font-size:13px; color: var(--text-2); margin-bottom: 6px;">Puedes desactivar los anuncios personalizados en: <strong>Ajustes Android → Privacidad → Anuncios → Inhabilitar personalización de anuncios</strong>.</p>
+        <a href="https://policies.google.com/privacy?hl=es" class="third-party__link" target="_blank">→ Política de privacidad de Google</a>
+      </div>
+
+      <div class="third-party">
+        <div class="third-party__name">💎 RevenueCat</div>
+        <div class="tag">SUSCRIPCIONES PREMIUM</div>
+        <div class="third-party__desc">
+          Las compras dentro de la app y la gestión de suscripciones son gestionadas por RevenueCat. RevenueCat puede procesar recibos de compra y el estado de la suscripción para verificar tu acceso premium. Ningún dato de tarjeta de pago pasa por RevenueCat — todos los pagos son procesados directamente por Google Play.
+        </div>
+        <a href="https://www.revenuecat.com/privacy" class="third-party__link" target="_blank">→ Política de privacidad de RevenueCat</a>
+      </div>
+
+      <div class="third-party">
+        <div class="third-party__name">🛒 Google Play Billing</div>
+        <div class="tag">PROCESAMIENTO DE PAGOS</div>
+        <div class="third-party__desc">
+          Todos los pagos de compras dentro de la app son procesados por Google Play. Nunca recibimos ni almacenamos tu información de tarjeta de pago. Los reembolsos y disputas de facturación se gestionan directamente con Google.
+        </div>
+        <a href="https://payments.google.com/payments/apis-secure/u/0/get_legal_document?ldo=0&ldt=privacynotice" class="third-party__link" target="_blank">→ Aviso de privacidad de Google Play</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="section__num">4</span> Publicidad y anuncios recompensados</div>
+      <div class="tag tag--red">ANUNCIOS — SOLO VERSIÓN GRATUITA</div>
+      <p>Los usuarios gratuitos de Wealth Lost pueden ver <strong>anuncios de vídeo recompensados</strong>. Ver un anuncio recompensado desbloquea contenido adicional (equivalencias) durante 24 horas. Esto es completamente opcional — nunca se te obliga a ver un anuncio.</p>
+      <p>Los suscriptores Premium <strong>nunca ven anuncios</strong>.</p>
+      <p>El sistema de anuncios recompensados está impulsado por Google AdMob. AdMob puede usar el Android Advertising ID para mostrar anuncios relevantes. Puedes limitar la personalización de anuncios en los ajustes de tu dispositivo Android.</p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="section__num">5</span> Base legal (RGPD / LOPDGDD)</div>
+      <p>Como desarrollador con sede en la Unión Europea (España), cumplimos con el Reglamento General de Protección de Datos (RGPD) y la Ley Orgánica 3/2018 de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD).</p>
+      <p>Dado que no recopilamos datos personales directamente, no se requiere base legal propia para nuestro tratamiento de datos. Los servicios de terceros (AdMob, RevenueCat, Google Play) procesan datos bajo sus propias bases legales:</p>
+      <ul>
+        <li><strong>Interés legítimo</strong> — verificación de suscripción (RevenueCat)</li>
+        <li><strong>Consentimiento</strong> — publicidad personalizada (AdMob)</li>
+        <li><strong>Ejecución de contrato</strong> — procesamiento de pagos (Google Play)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="section__num">6</span> Tus derechos</div>
+      <p>Bajo el RGPD y la LOPDGDD, tienes los siguientes derechos respecto a cualquier dato personal que pudiera procesarse:</p>
+      <ul>
+        <li><strong>Acceso</strong> — Todos tus datos de la app están en tu dispositivo. Puedes verlos en cualquier momento.</li>
+        <li><strong>Supresión</strong> — Elimina todos los datos locales desde Ajustes → Eliminar todos los datos.</li>
+        <li><strong>Portabilidad</strong> — Exporta tus datos usando la función Compartir.</li>
+        <li><strong>Opt-out de personalización publicitaria</strong> — A través de Ajustes Android → Privacidad → Anuncios.</li>
+        <li><strong>Contactar con AdMob</strong> — Para datos procesados por Google AdMob, contacta directamente con Google.</li>
+        <li><strong>Reclamación ante la AEPD</strong> — Tienes derecho a presentar una reclamación ante la Agencia Española de Protección de Datos en <a href="https://www.aepd.es" style="color:var(--accent);">aepd.es</a>.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="section__num">7</span> Privacidad de menores</div>
+      <p>Wealth Lost <strong>no está dirigida a menores de 13 años</strong>. La app trata temas financieros destinados a adultos. No recopilamos conscientemente ningún dato de menores. Si crees que un menor ha usado esta app y se han recopilado datos, contáctanos inmediatamente.</p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="section__num">8</span> Seguridad de los datos</div>
+      <p>Dado que todos tus datos financieros se almacenan localmente en tu dispositivo, su seguridad depende de las medidas de seguridad propias de tu dispositivo (PIN, biometría, cifrado). Recomendamos utilizar medidas de seguridad a nivel de dispositivo.</p>
+      <p>No operamos servidores que almacenen tus datos financieros personales, lo que significa que no existe una base de datos central que pueda ser vulnerada.</p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="section__num">9</span> Cambios en esta política</div>
+      <p>Podemos actualizar esta Política de Privacidad ocasionalmente. La fecha de "Última actualización" en la parte superior de esta página reflejará cualquier cambio. Te recomendamos revisar esta política periódicamente. El uso continuado de la app tras los cambios implica la aceptación de la política actualizada.</p>
+    </div>
+
+    <div class="contact-box">
+      <span class="contact-box__icon">✉️</span>
+      <div class="contact-box__title">¿Preguntas sobre privacidad?</div>
+      <div class="contact-box__desc">Si tienes alguna pregunta o duda sobre esta Política de Privacidad o cómo se gestionan tus datos, contáctanos.</div>
+      <p><a href="mailto:yerfer.2@gmail.com">yerfer.2@gmail.com</a></p>
+      <p style="margin-top:8px; font-size:13px; color: var(--text-3)"><a href="https://lebr.io" style="color:var(--text-3)">lebr.io</a></p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    document.querySelector('[onclick="setLang(\'' + lang + '\')"]').classList.add('active');
+  }
+</script>
+</body>
+</html>

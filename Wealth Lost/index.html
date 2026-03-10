@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wealth Lost – Legal Documents</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(145deg, #0d0d0d 0%, #1a1200 40%, #0d0d0d 100%);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Ambient glow */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,140,0,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Lang toggle */
+    .lang-bar {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      display: flex;
+      gap: 6px;
+      z-index: 100;
+    }
+    .lang-btn {
+      padding: 6px 14px;
+      border-radius: 50px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.5);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      backdrop-filter: blur(8px);
+    }
+    .lang-btn.active {
+      background: #ff8c00;
+      border-color: #ff8c00;
+      color: #000;
+    }
+
+    /* Main container */
+    .container {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Icon */
+    .app-icon {
+      font-size: 72px;
+      line-height: 1;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 24px rgba(255,140,0,0.5));
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* App name */
+    .app-name {
+      font-size: 36px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .app-name span {
+      color: #ff8c00;
+    }
+
+    /* Subtitle */
+    .subtitle {
+      font-size: 15px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 48px;
+      text-align: center;
+      letter-spacing: 0.3px;
+    }
+
+    /* Cards */
+    .cards {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 56px;
+    }
+
+    .card {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 22px 24px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      backdrop-filter: blur(12px);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,140,0,0.06), transparent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .card:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,140,0,0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(255,140,0,0.12);
+    }
+    .card:hover::before { opacity: 1; }
+    .card:active { transform: translateY(0); }
+
+    .card__emoji {
+      font-size: 36px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .card__text {
+      flex: 1;
+    }
+    .card__title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .card__desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.4;
+    }
+
+    .card__arrow {
+      font-size: 20px;
+      color: rgba(255,140,0,0.6);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .card:hover .card__arrow {
+      transform: translateX(4px);
+      color: #ff8c00;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .footer__copy {
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+    }
+    .footer__copy a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .footer__copy a:hover { color: #ff8c00; }
+    .footer__email {
+      font-size: 13px;
+      color: rgba(255,255,255,0.25);
+    }
+    .footer__email a {
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer__email a:hover { color: rgba(255,255,255,0.6); }
+
+    /* Decorative dots */
+    .dot {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .dot-1 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(255,140,0,0.06), transparent);
+      top: -100px; left: -100px;
+    }
+    .dot-2 {
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(255,77,77,0.05), transparent);
+      bottom: -60px; right: -60px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dot dot-1"></div>
+  <div class="dot dot-2"></div>
+
+  <!-- Language toggle -->
+  <div class="lang-bar">
+    <button class="lang-btn active" onclick="setLang('en')">🇬🇧 EN</button>
+    <button class="lang-btn" onclick="setLang('es')">🇪🇸 ES</button>
+  </div>
+
+  <div class="container">
+
+    <!-- Icon -->
+    <div class="app-icon">💸</div>
+
+    <!-- Name -->
+    <h1 class="app-name">Wealth <span>Lost</span></h1>
+
+    <!-- Subtitle -->
+    <p class="subtitle" id="subtitle">Legal Documents</p>
+
+    <!-- Cards -->
+    <div class="cards">
+      <a class="card" href="privacy-policy.html">
+        <span class="card__emoji">🔒</span>
+        <div class="card__text">
+          <div class="card__title" id="card1-title">Privacy Policy</div>
+          <div class="card__desc" id="card1-desc">How we handle and protect your data</div>
+        </div>
+        <span class="card__arrow">→</span>
+      </a>
+
+      <a class="card" href="terms-conditions.html">
+        <span class="card__emoji">📋</span>
+        <div class="card__text">
+          <div class="card__title" id="card2-title">Terms & Conditions</div>
+          <div class="card__desc" id="card2-desc">Terms of use of the application</div>
+        </div>
+        <span class="card__arrow">→</span>
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p class="footer__copy">© 2026 <a href="https://lebr.io" target="_blank">Lebr.io</a>. <span id="footer-rights">All rights reserved.</span></p>
+      <p class="footer__email"><a href="mailto:yerfer.2@gmail.com">yerfer.2@gmail.com</a></p>
+    </div>
+
+  </div>
+
+  <script>
+    const texts = {
+      en: {
+        subtitle: 'Legal Documents',
+        card1Title: 'Privacy Policy',
+        card1Desc: 'How we handle and protect your data',
+        card2Title: 'Terms & Conditions',
+        card2Desc: 'Terms of use of the application',
+        rights: 'All rights reserved.',
+      },
+      es: {
+        subtitle: 'Documentos Legales',
+        card1Title: 'Política de Privacidad',
+        card1Desc: 'Cómo protegemos tus datos personales',
+        card2Title: 'Términos y Condiciones',
+        card2Desc: 'Condiciones de uso de la aplicación',
+        rights: 'Todos los derechos reservados.',
+      }
+    };
+
+    function setLang(lang) {
+      const t = texts[lang];
+      document.getElementById('subtitle').textContent = t.subtitle;
+      document.getElementById('card1-title').textContent = t.card1Title;
+      document.getElementById('card1-desc').textContent = t.card1Desc;
+      document.getElementById('card2-title').textContent = t.card2Title;
+      document.getElementById('card2-desc').textContent = t.card2Desc;
+      document.getElementById('footer-rights').textContent = t.rights;
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector('[onclick="setLang(\'' + lang + '\')"]').classList.add('active');
+      document.documentElement.lang = lang;
+    }
+
+    // Auto-detect browser language
+    const browserLang = navigator.language?.startsWith('es') ? 'es' : 'en';
+    if (browserLang === 'es') setLang('es');
+  </script>
+
+</body>
+</html>
